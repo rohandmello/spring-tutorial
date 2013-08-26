@@ -2,14 +2,23 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="aaa" class="com.rohan.core.shop.Battery">
-        <property name="name" value="AAA" />
-        <property name="price" value="2.5" />
-        <property name="rechargeable" value="true" />
+    <bean id="aaa" class="com.rohan.core.shop.DiscountFactoryBean">
+        <property name="product">
+            <bean class="com.rohan.core.shop.Battery">
+                <constructor-arg value="AAA" />
+                <constructor-arg value="2.5" />
+                <constructor-arg value="true"/>
+            </bean>
+        </property>
+        <property name="discount" value="0.2" />
     </bean>
-    <bean id="cdrw" class="com.rohan.core.shop.Disc">
-        <property name="name" value="CD-RW" />
-        <property name="price" value="1.5" />
-        <property name="capacity" value="700" />
+    <bean id="cdrw" class="com.rohan.core.shop.DiscountFactoryBean">
+        <property name="product">
+            <bean class="com.rohan.core.shop.Disc">
+                <constructor-arg value="CD-RW" />
+                <constructor-arg value="1.5" />
+            </bean>
+        </property>
+        <property name="discount" value="0.1" />
     </bean>
 </beans>
